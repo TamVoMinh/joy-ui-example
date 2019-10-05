@@ -1,0 +1,57 @@
+{
+    "size": 50,
+    "entry": "/entities/employee",
+    "keys": ["id", "name", "salary", "joinDate", "leaveDate", "payroll"],
+    "fields": {
+        "id": {
+            "label": "ID",
+            "width": 180,
+            "sortable": false,
+            "editable": false
+        },
+        "name": {
+            "label": "name",
+            "width": 280,
+            "sortable": false,
+            "editable": false,
+            "filterable": true
+        },
+        "salary": {
+            "label": "Salary",
+            "width": 380,
+            "sortable": true,
+            "editable": true,
+            "filterable": true
+        },
+        "joinDate": {
+            "label": "Join Date",
+            "width": 200,
+            "sortable": true,
+            "editable": true,
+            "type": "date",
+            "filterable": true
+        },
+        "leaveDate": {
+            "label": "Leave Date",
+            "width": 350,
+            "sortable": true,
+            "editable": true,
+            "type": "date",
+            "filterable": true
+        },
+        "payroll": {
+            "label": "Payroll",
+            "width": 80,
+            "sortable": false,
+            "editable": true,
+            "filterable": true
+        }
+    },
+    "default": {
+        "position": "",
+        "salary": "",
+        "joinDate": null,
+        "leaveDate": null,
+        "payroll": ""
+    }
+}

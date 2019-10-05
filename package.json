@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "api": "node api",
+    "api": "node server/api",
     "react-app": "react-scripts start",
     "demo-app": "npx webpack-dev-server --open",
     "demo": "run-p api demo-app"

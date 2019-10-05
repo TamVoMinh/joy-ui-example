@@ -1,5 +1,7 @@
-# joy-ui-example
+joy-ui-example
 ===============
+
+![Example](/assets/joy-ui-example.gif)
 
 
 ## Run demo
