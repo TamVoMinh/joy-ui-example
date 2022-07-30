@@ -1,19 +1,20 @@
-const debug = require('debug')('employee.controler');
-const { INVALID_REQUEST, POST, GET, PUT } = require('./const');
-const { NanoId } = require('../data/model/base.model');
-const {
+import Debug from 'debug'
+import { INVALID_REQUEST, POST, GET, PUT } from './const.js';
+import { NanoId } from '../data/model/base.model.js';
+import {
   InputModel,
   OutputModel,
   OutputModels,
   UpdateModel,
   QueryModel
-} = require('../data/model');
+} from '../data/model/index.js';
 
 const pagging = {
   maxlimit: 50,
 };
 
-exports.InitEmployee = {
+const debug = Debug('employee.controler')
+export const InitEmployee = {
   path: '/employee-init',
   method: GET,
   validate: {},
@@ -28,7 +29,7 @@ exports.InitEmployee = {
   }
 };
 
-exports.addEmployee = {
+export const addEmployee = {
   path: '/employee',
   method: POST,
   validate: {
@@ -65,7 +66,7 @@ exports.addEmployee = {
   }
 };
 
-exports.updateEmployee = {
+export const updateEmployee = {
   path: '/employee/:id',
   method: PUT,
   validate: {
@@ -115,7 +116,7 @@ exports.updateEmployee = {
   }
 };
 
-exports.getEmployee = {
+export const getEmployee = {
   path: '/employee/:id',
   method: GET,
   validate: {
@@ -158,7 +159,7 @@ exports.getEmployee = {
 };
 
 
-exports.queryEmployee = {
+export const queryEmployee = {
   path: '/employee',
   method: GET,
   validate: {

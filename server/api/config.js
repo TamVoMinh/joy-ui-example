@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     db: {
         database: 'demodb',
         dialect: 'sqlite',

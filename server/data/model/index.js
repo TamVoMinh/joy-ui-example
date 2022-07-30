@@ -1,26 +1,27 @@
-const { Joi } = require('koa-joi-router');
-const param = require('./query.param');
-const {
+import router from 'koa-joi-router'
+const {Joi} = router
+import * as param from './query.param.js'
+import {
   NanoId,
   ResponseModel,
   UpdateConditions,
   BaseEntity
-} = require('./base.model');
+} from './base.model.js'
 
 const HolidayModel = Joi.object({
   id: NanoId,
   name: Joi.string(),
   salary: Joi.number(),
   joinDate: Joi.date(),
-  leaveDate: Joi.date()
-    .optional()
-    .allow(null),
+  leaveDate: Joi.date(),
   payroll: Joi.number()
 });
 
-const RequireModel = HolidayModel.requiredKeys('name', 'salary', 'joinDate', 'payroll').optionalKeys('leaveDate');
+const RequireModel = HolidayModel
+      .fork(['name', 'salary', 'joinDate', 'payroll'], schema => schema.required())
+      .fork(['leaveDate'], schema => schema.optional().allow(null));
 
-const OptionalModel = HolidayModel.optionalKeys('name', 'salary', 'joinDate', 'leaveDate', 'payroll');
+const OptionalModel = HolidayModel;
 
 const InputModel = RequireModel;
 
@@ -63,7 +64,7 @@ const QueryModel = param.baseParam.concat(Joi.object({
   payroll: param.date
 }));
 
-module.exports = {
+export {
   InputModel,
   OutputModel,
   OutputModels,

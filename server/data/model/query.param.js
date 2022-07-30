@@ -1,4 +1,5 @@
-const { Joi } = require('koa-joi-router');
+import router from 'koa-joi-router';
+const {Joi} = router
 
 const $Number = Joi.number().integer()
   .optional()
@@ -25,11 +26,11 @@ const less_than_or_equal = 'less than or equal';
 const like = 'like, %key% for contain, key% for startWith';
 const contains = 'contains';
 
-exports.keyId = Joi.object({
+export const keyId = Joi.object({
   $eq: $key.description('nano id Or uuid')
 });
 
-exports.number = Joi.object({
+export const number = Joi.object({
   $eq: $Number.description(equal),
   $ne: $Number.description(not_equal),
   $gt: $Number.description(greater_than),
@@ -37,7 +38,7 @@ exports.number = Joi.object({
   $lt: $Number.description(less_than),
   $lte: $Number.description(less_than_or_equal)
 });
-exports.date = {
+export const date = {
   $eq: $Date.description(equal),
   $ne: $Date.description(not_equal),
   $gt: $Date.description(greater_than),
@@ -45,14 +46,14 @@ exports.date = {
   $lt: $Date.description(less_than),
   $lte: $Date.description(less_than_or_equal)
 };
-exports.string = Joi.object({
+export const string = Joi.object({
   $eq: $String.description(equal),
   $ne: $String.description(not_equal),
   $like: $String.description(like),
   $contains: $String.description(contains)
 });
 
-exports.baseParam = Joi.object({
+export const baseParam = Joi.object({
   $or: Joi.array()
     .items(Joi.object())
     .optional(),
@@ -90,9 +91,9 @@ const total = Joi.number()
 
 
 const pagging = Joi.object({ limit, offset });
-exports.$Pagging = pagging;
+export const $Pagging = pagging;
 
-exports.PaggingResultModel = Joi.object({
+export const PaggingResultModel = Joi.object({
   limit,
   offset,
   total
