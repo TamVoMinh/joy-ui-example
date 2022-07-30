@@ -1,6 +1,7 @@
-const Sequelize = require('sequelize');
-const debug = require('debug')('ORM');
-const faker = require('faker');
+import { Sequelize } from 'sequelize'
+import Debug from 'debug'
+import { faker } from '@faker-js/faker';
+const debug = Debug('ORM')
 const Op = Sequelize.Op;
 const operatorsAliases = {
   $eq: Op.eq,
@@ -52,10 +53,10 @@ class Db {
     for(let i =0; i < 1000; i++){
       employeelist.push({
         name: faker.name.findName(),
-        salary: faker.random.number(100000),
+        salary: faker.random.numeric(5),
         joinDate: faker.date.past(),
         leaveDate: null,
-        payroll: faker.random.number()
+        payroll: faker.random.numeric(2)
       })
     };
 
@@ -106,7 +107,7 @@ const createDb = (cfg, entities, logger) => {
     .establish();
 };
 
-module.exports = (config, entities, logger) => {
+export default function DbCreator(config, entities, logger) {
   const db = createDb(config, entities, logger);
   return {
     db,

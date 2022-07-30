@@ -1,6 +1,5 @@
-'use strict';
-const qs = require('qs');
-const merge = require('merge-descriptors');
+import qs from 'qs';
+import merge from 'merge-descriptors';
 
 /**
  * Return middleware that handle exceptions in Koa.
@@ -67,4 +66,4 @@ function nestedQuery() {
   };
 }
 
-module.exports = nestedQuery;
+export {nestedQuery};

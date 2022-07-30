@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * HTTP Status codes
  */
@@ -152,4 +150,4 @@ function responseHandler() {
   };
 }
 
-module.exports = responseHandler;
+export {responseHandler};

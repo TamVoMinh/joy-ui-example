@@ -1,4 +1,4 @@
-const Employee = require('./employee');
-module.exports = {
+import Employee from './employee.js';
+export const entities = {
     Employee
 };

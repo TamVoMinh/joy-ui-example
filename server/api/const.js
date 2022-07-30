@@ -1,17 +1,17 @@
-exports.POST = 'POST';
-exports.GET = 'GET';
-exports.PUT = 'PUT';
+export const POST = 'POST';
+export const GET = 'GET';
+export const PUT = 'PUT';
 
 /**
  * Client Failures
  */
-module.exports.UNKNOWN_ENDPOINT = {
+export const UNKNOWN_ENDPOINT = {
     statusCode: 404,
     code: 'UNKNOWN_ENDPOINT',
     message: 'The requested endpoint does not exist.'
   };
   
-  module.exports.INVALID_REQUEST = {
+  export const INVALID_REQUEST = {
     statusCode: 423,
     code: 'INVALID_REQUEST',
     message: 'The request has invalid parameters.'
@@ -21,13 +21,13 @@ module.exports.UNKNOWN_ENDPOINT = {
   /**
    * Server Errors
    */
-  module.exports.INTERNAL_ERROR = {
+  export const INTERNAL_ERROR = {
     statusCode: 500,
     code: 'INTERNAL_ERROR',
     message: 'The server encountered an internal error.'
   };
   
-  module.exports.UNKNOWN_ERROR = {
+  export const UNKNOWN_ERROR = {
     statusCode: 500,
     code: 'UNKNOWN_ERROR',
     message: 'The server encountered an unknown error.'

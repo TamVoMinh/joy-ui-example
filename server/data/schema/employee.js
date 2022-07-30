@@ -1,14 +1,13 @@
-// http://docs.sequelizejs.com/en/latest/docs/models-definition/
-const Sequelize = require('sequelize');
-const generate = require('nanoid/generate');
-
-module.exports = orm => {
+import { Sequelize } from 'sequelize'
+import { customAlphabet } from 'nanoid'
+const nanoid = customAlphabet('1234567890abcdef',9)
+export default function Employee(orm){
   return orm.define(
     'Employee',
     {
       id: {
         type: Sequelize.CHAR(7),
-        defaultValue: () => generate('1234567890abcdef', 9),
+        defaultValue: () => nanoid(),
         primaryKey: true
       },
       name: {
@@ -25,7 +24,8 @@ module.exports = orm => {
       },
       leaveDate: {
         type: Sequelize.DATEONLY,
-        allowNull: true
+        allowNull: true,
+        defaultValue: null
       },
       payroll: {
         type: Sequelize.INTEGER,
