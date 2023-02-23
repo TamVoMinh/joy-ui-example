@@ -55,7 +55,7 @@
     "react-hot-loader": "^4.13.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",
-    "sequelize": "^6.21.3",
+    "sequelize": "^6.28.2",
     "sqlite3": "^5.0.10",
     "style-loader": "^3.3.1"
   }
